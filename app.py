@@ -19,7 +19,14 @@ def user_page(): #Handler
 
 @app.route('/admin')
 def admin_page():
-    return render_template('admin.html')
+    cursor.execute(" SELECT * FROM SCHEDULE ")
+    result = cursor.fetchall()
+    db.commit()
+    data = []
+    for i in result:
+        data.append(i)
+    return render_template('admin.html',res = data)
+
 @app.route('/user')
 def result_page(): #Handler
     return render_template('index.html')
@@ -73,6 +80,7 @@ def checkstatus():
 def collectData1():
     n = request.form['nom']
     st = request.form['stus']
+    print(st)
     if st == 'approve':
         k = 'approved'
         sql = "UPDATE SCHEDULE SET status = %s WHERE mobile = %s"
@@ -87,7 +95,7 @@ def collectData1():
         cursor.execute(sql,val)
         db.commit()
         return render_template('admin.html',res1=kn)
-    else:
+    elif st == "assign":
         dt = request.form['time']
         k = 'approved'
         sql = "UPDATE SCHEDULE SET status = %s WHERE mobile = %s"
@@ -99,6 +107,7 @@ def collectData1():
         cursor.execute(sql,val)
         db.commit()
         return render_template('admin.html',res2 = k)
+    
 
         
 def storedata(name,mobile,time): #Private function not a handler
