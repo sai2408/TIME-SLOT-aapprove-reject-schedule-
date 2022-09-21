@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Demo</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li ><a href="user">USER</a></li>
+            <li class="active"><a href="#">ADMIN</a></li>
+          </ul>
+        </div>
+      </nav>
+<div class="bg-primary bg-opacity-70">
+    <div class="container" >
+        <h2><mark>USER DETAILS</h2>
+        <br>
+        <div class="jumbotron" style="background-color:grey">
+          <br> 
+          <a href=""><button>Refresh</button></a>
+          <br>
+          <br>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>mobile</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for instance in res %}
+                <tr>
+                <td>
+                    {{instance[0]}}
+                </td>
+                <td>
+                    {{instance[1]}}
+                </td>
+                <td>
+                    {{instance[2]}}
+                </td>
+                <td>
+                  {{instance[3]}}
+              </td>
+            </tr>
+                {% endfor %} 
+            </tbody>
+          </table>
+          <br>
+        </div>
+        <div class="jumbotron" style="background-color:#ba68c8">
+            <h3>Enter mobile to conform/reject :</h3>
+            <br>
+            <form class="mx-1 mx-md-4" action="/collectmob" method = "POST">
+                    
+
+                <div class="form-group" >
+                    <label for="name" >Mobile Number :</label>
+                    <input type="name" class="form-control" id="name" placeholder="Enter mobile" name="nom">
+                </div>
+                
+                <div class = "form-check">
+                    <input class = "from-check-input" type="radio" name = "stus" value="approve">
+                    <label class="form-check-label" >
+                        Approve
+                    </label>
+                </div>
+
+                <div class = "form-check">
+                    <input class = "from-check-input" type="radio" name = "stus" value="reject">
+                    <label class="form-check-label" >
+                        Reject
+                    </label>
+                </div>
+
+                <div class = "form-check">
+                  <input class = "from-check-input" type="radio" name = "stus" value="assign">
+                  <label class="form-check-label" >
+                      Assign some time
+                  </label>
+              </div>
+
+                <div class="form-group">
+                  <label for="scheduletime">Schedule (date and time):</label>
+                  <br>
+                  <input type="datetime-local" id="scheduletime" name="time">
+              </div>
+
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <input type="submit" class="btn btn-primary btn-lg"></button>
+              </div>
+            </form>
+            {{res1}}
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
