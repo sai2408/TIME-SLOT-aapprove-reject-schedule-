@@ -3,6 +3,13 @@ This if the project which includes the FULL STACK WEB APPLICATION consists of bo
 
 <h2 style="color:blue;">Now we can see some sample images of web application:</h2>
 
-<h3>Sample 1</h3><br>
+<h3>Sample 1</h3>
+<br>
 <img src="https://user-images.githubusercontent.com/57175225/191446849-1f3b68e9-73ee-4ee6-8e6d-9c9a32e2b80d.png" alt="my banner" width="1100" height="400">
 <br>
+
+<h3>Sample 1</h3
+><br>
+<img src= "https://user-images.githubusercontent.com/57175225/191447055-4a0afbc7-6d7a-478b-b253-5ffa00aec042.png" alt="my banner" width="1100" height="400">
+<br>
+
